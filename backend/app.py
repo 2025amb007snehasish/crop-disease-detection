@@ -9,7 +9,7 @@ CORS(app)
 def home():
     return "Backend is running"
 
-@app.route("/", methods=["POST"])
+@app.route("/detect", methods=["POST"])
 def predict():
     if "file" not in request.files:
         return jsonify({"error": "No file"}), 400
