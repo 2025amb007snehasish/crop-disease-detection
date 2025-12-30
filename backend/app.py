@@ -16,7 +16,7 @@ def predict():
 
     file = request.files["file"]
     result = predict_disease(file)
-    return jsonify({"prediction": result})
+    return jsonify({"disease": result})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
