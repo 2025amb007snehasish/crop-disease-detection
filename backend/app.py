@@ -15,8 +15,8 @@ def predict():
         return jsonify({"error": "No file"}), 400
 
     file = request.files["file"]
-    result = predict_disease(file)
-    return jsonify({"disease": result})
+    disease = predict_disease(file)
+    return jsonify({"disease": disease})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
