@@ -10,12 +10,13 @@ def home():
     return "Backend is running"
 
 @app.route("/detect", methods=["POST"])
-def predict():
-    if "file" not in request.files:
-        return jsonify({"error": "No file"}), 400
+def detect():
+    if "image" not in request.files:   # ✅ FIXED
+        return jsonify({"error": "No image"}), 400
 
-    file = request.files["file"]
-    disease = predict_disease(file)
+    image = request.files["image"]     # ✅ FIXED
+    disease = predict_disease(image)
+
     return jsonify({"disease": disease})
 
 if __name__ == "__main__":
