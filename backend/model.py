@@ -13,4 +13,4 @@ def predict_disease(image_file):
     )
 
     result = response.json()
-    return result["predictions"][0]["class"]
+    return result["disease"][0]["class"]
