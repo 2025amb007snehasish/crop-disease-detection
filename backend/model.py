@@ -13,4 +13,9 @@ def predict_disease(image_file):
     )
 
     result = response.json()
-    return result["predictions"][0]["class"]   # ✅ FIXED
+
+    # SAFE parsing
+    if "predictions" in result and len(result["predictions"]) > 0:
+        return result["predictions"][0]["class"]
+    else:
+        return "No disease detected"
